@@ -2,8 +2,8 @@ start:
 	ldi r16, 0xFF
 	out 0x04, r16 ;direction of portb - output
 
-	ldi r16, 5
-	out 0x05, r16 ;initial value
+	ldi r16, 5 ;initial value
+	out 0x05, r16
 
 loop:
 	rjmp delay
