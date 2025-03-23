@@ -18,7 +18,7 @@ not_reset:
 	rjmp loop
 
 delay:
-	ldi r17, 41		;outter loop counter
+	ldi r17, 41	;outter loop counter
 outer_loop:
 	ldi r18, 255	;inner loop counter
 inner_loop:
