@@ -1,9 +1,9 @@
 start:
 	ldi r16, 0xFF
-	out 0x04, r16	;direction of portb - output
+	out 0x04, r16 ;direction of portb - output
 
 	ldi r16, 5
-	out 0x05, r16
+	out 0x05, r16 ;initial value
 
 loop:
 	rjmp delay
@@ -18,11 +18,11 @@ not_reset:
 	rjmp loop
 
 delay:
-	ldi r17, 41	;outter loop counter
+	ldi r17, 41 ;outter loop counter
 outer_loop:
-	ldi r18, 255	;inner loop counter
+	ldi r18, 255 ;inner loop counter
 inner_loop:
-	ldi r19, 255	;most inner loop counter
+	ldi r19, 255 ;most inner loop counter
 inner_most_loop:
 	dec r19
 	brne inner_most_loop
