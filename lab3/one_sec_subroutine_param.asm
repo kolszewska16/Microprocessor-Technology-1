@@ -1,3 +1,11 @@
+.CSEG
+.ORG 0
+	rjmp start
+
+.DSEG
+delay_value: .BYTE 1
+
+.CSEG
 start:
 	ldi r16, 0xFF
 	out 0x04, r16 ;direction of portb - output
@@ -5,7 +13,11 @@ start:
 	ldi r16, 0 ;initial value
 	out 0x05, r16
 
+	ldi r20, 41
+;	sts delay_value, r20
+
 loop:
+	sts delay_value, r20
 	call delay
 	inc r16
 	cpi r16, 64
@@ -17,7 +29,7 @@ not_reset:
 	rjmp loop
 
 delay:
-	ldi r17, 41 ;outter loop counter
+	lds r17, delay_value ;outter loop counter
 outer_loop:
 	ldi r18, 255 ;inner loop counter
 inner_loop:
