@@ -14,7 +14,6 @@ start:
 	out 0x05, r16
 
 	ldi r20, 41
-;	sts delay_value, r20
 
 loop:
 	sts delay_value, r20
@@ -29,6 +28,10 @@ not_reset:
 	rjmp loop
 
 delay:
+	push r17
+	push r18
+	push r19
+
 	lds r17, delay_value ;outter loop counter
 outer_loop:
 	ldi r18, 255 ;inner loop counter
@@ -46,5 +49,9 @@ inner_most_loop:
 	nop
 	dec r17
 	brne outer_loop
+
+	pop r19
+	pop r18
+	pop r17
 
 	ret
