@@ -1,4 +1,4 @@
-#include "m328PBdef.inc"
+.include "m328PBdef.inc"
 
 .org 0
 jmp main ;skip vector table
@@ -7,24 +7,24 @@ jmp main ;skip vector table
 jmp int0_isr
 
 main:
-	ldi r16, LOW(RAMEND) ;initialize stack for ISR
+	ldi r16, LOW(RAMEND) 
 	out spl, r16
 	ldi r16, HIGH(RAMEND)
 	out sph, r16
-	sbi ddrb, 5 ;portb.5 is output (led0)
-	sbi portd, 2 ;pull-up enable for portd.2
+	sbi ddrb, 5 
+	sbi portd, 2 
 	ldi r20, (1<<INT0)
-	out eimsk, r20 ;enable int0
+	out eimsk, r20 
 	ldi r20, (1<<ISC01)
-	sts eicra, r20 ;set int0 active on falling edge
-	sei ;enable interrupts
+	sts eicra, r20 
+	sei 
 
 stop:
-	jmp stop ;stay forever
+	jmp stop 
 
 int0_isr:
-	in r21, pinb ;read portb
+	in r21, pinb 
 	ldi r22, 0x20
-	eor r21, r22 ;toggle bit 5
+	eor r21, r22 
 	out portb, r21
 	reti
