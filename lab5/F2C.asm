@@ -47,13 +47,13 @@ positive:
 	lsr r16			;1/2
 	ror r17			;1/2 with carry
 	lsr r18			;1/2
-	lsr r19			;1/2 with carry
+	ror r19			;1/2 with carry
 	lsr r18			;1/4
-	lsr r19			;1/4 with carry
+	ror r19			;1/4 with carry
 	lsr r18			;1/8
-	lsr r19			;1/8 with carry
+	ror r19			;1/8 with carry
 	lsr r18			;1/16
-	lsr r19			;1/16 with carry
+	ror r19			;1/16 with carry
 	add r16, r18
 	adc r17, r19
 
