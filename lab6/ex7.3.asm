@@ -13,13 +13,13 @@ main:
 	out sph, r16
 
 	ldi r16, 0x3F
-	out ddrb, r17	;diodes as output
+	out ddrb, r16	;diodes as output
 
 	ldi r20, 0x0F	;0b001111 => 0x0F
-	out ddrc, r17	;rows as input, columns as output
+	out ddrc, r20	;rows as input, columns as output
 
 	ldi r20, 0x30	;0b110000 => 0x30
-	out portc, r17	;pull-up
+	out portc, r20	;pull-up
 
 	;rows
 	ldi r20, (1<<PCINT13)|(1<<PCINT12)
